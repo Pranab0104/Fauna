@@ -1,0 +1,8046 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.5.15,
+* Autoprefixer: v10.5.0
+* Browsers: last 4 version
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap");
+@font-face {
+  font-family: "Jungle";
+  src: url("./assets/fonts/Jungle.otf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fortune";
+  src: url("./assets/fonts/Fortune.ttf") format("truetype");
+  /* font-weight: 900; */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Scary";
+  src: url("./assets/fonts/Scary.ttf") format("truetype");
+  /* font-weight: 600; */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Game";
+  src: url("./assets/fonts/Squids.ttf") format("truetype");
+  /* font-weight: 600; */
+  font-style: normal;
+}
+
+:root {
+  /* Primary Colors */
+  --primary: #1a5455;
+  --primary-light: #e3c98a;
+  --secondary: #3e4935;
+  --accent: #d97b4a;
+
+  /* Background */
+  --bg: #0d0d0b;
+  --surface: #171713;
+
+  /* Text */
+  --heading: #f4efe3;
+  --text: #c8c3b7;
+  --text-light: #8f8b80;
+
+  /* Border */
+  --border: rgb(202, 198, 191);
+
+  /* Effects */
+  --dow: 0px 5px 25px rgb(0, 0, 0);
+  --shadow: 0 5px 25px rgb(188, 193, 186);
+  --radius: 15px;
+  --transition: all 0.2s ease-in;
+}
+
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* font- family: ; */
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg);
+  color: antiquewhite;
+  scroll-behavior: smooth;
+}
+
+/* NAvbar start from here */
+nav {
+  padding: 1%;
+  border: 2px solid var(--heading);
+  border-radius: var(--radius);
+  -webkit-transition:
+    background 0.3s ease,
+    backdrop-filter 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
+  transition:
+    background 0.3s ease,
+    backdrop-filter 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
+  transition:
+    background 0.3s ease,
+    backdrop-filter 0.3s ease,
+    box-shadow 0.3s ease;
+  transition:
+    background 0.3s ease,
+    backdrop-filter 0.3s ease,
+    box-shadow 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
+}
+
+/* Navigation hover */
+nav:hover {
+  background: rgba(20, 25, 18, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(8px);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+}
+
+/* Logo */
+nav .logo {
+  font-family: jungle;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
+/* Desktop links */
+nav .nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  font-family: game;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+nav .nav-links a {
+  cursor: pointer;
+  color: var(--text);
+  -webkit-transition:
+    color 0.3s ease,
+    text-decoration-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    text-decoration-color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  color: var(--heading);
+}
+
+/* Menu Hamburger BUTTON */
+.menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: 1px solid var(--heading);
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 5px;
+  z-index: 30;
+}
+
+.menu-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  -webkit-transition:
+    opacity 0.3s ease,
+    background 0.3s ease,
+    -webkit-transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    background 0.3s ease,
+    -webkit-transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background 0.3s ease,
+    -webkit-transform 0.3s ease;
+}
+
+.menu-btn:hover span {
+  background: var(--heading);
+}
+
+/* HAMBURGER (3 lines )*/
+.menu-btn.active span:nth-child(1) {
+  -webkit-transform: translateY(7px) rotate(45deg);
+  -ms-transform: translateY(7px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  -webkit-transform: translateY(-7px) rotate(-45deg);
+  -ms-transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+}
+
+/* For Tablets */
+@media (max-width: 900px) {
+  nav {
+    padding: 1.5%;
+  }
+
+  nav .nav-links {
+    gap: 1.5rem;
+  }
+}
+
+/* For mobiles */
+@media (max-width: 768px) {
+  nav {
+    padding: 3% 4%;
+  }
+
+  /* Hide desktop links */
+  nav .nav-links {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .menu-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+    background: rgba(20, 25, 18, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--heading);
+    border-radius: var(--radius);
+    -webkit-box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+    -webkit-transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      -webkit-transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      -webkit-transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease,
+      -webkit-transform 0.3s ease;
+  }
+
+  /* Open menu */
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* Mobile links */
+  .mobile-menu a {
+    width: 100%;
+    padding: 1rem;
+    color: var(--text);
+    font-family: game;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    -webkit-transition:
+      color 0.3s ease,
+      padding-left 0.3s ease;
+    transition:
+      color 0.3s ease,
+      padding-left 0.3s ease;
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--heading);
+    padding-left: 1.4rem;
+  }
+}
+
+/* For small mobile devices */
+@media (max-width: 480px) {
+  nav {
+    padding: 4% 5%;
+  }
+
+  nav .logo {
+    font-size: 1.4rem;
+  }
+
+  .menu-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-menu {
+    padding: 0.7rem;
+  }
+
+  .mobile-menu a {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Home starts from here. */
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 3%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.home .outer-home {
+  border: 3px solid var(--border);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.home .inner-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+}
+
+.inner-home h1 {
+  font-size: 8vh;
+  font-family: Jungle;
+  margin-bottom: 1%;
+  color: var(--text);
+  letter-spacing: 2px;
+}
+
+.inner-home h2 {
+  font-size: 8vh;
+  font-family: Jungle;
+  margin-bottom: 1%;
+  color: var(--text-light);
+  letter-spacing: 2px;
+}
+
+/* Home Desc */
+.inner-home p {
+  position: absolute;
+  bottom: 8%;
+  width: 70%;
+  padding: 1.5%;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background-color: #0d0d0b;
+  margin: 2% 0;
+  font-size: 2.5vh;
+  font-family: scary;
+  color: var(--accent);
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: center;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+}
+
+/* Explore the wild */
+.inner-home h3 {
+  position: absolute;
+  bottom: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 3vh;
+  font-family: game;
+  color: var(--text);
+  letter-spacing: 1px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.inner-home h3 > i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.inner-home h3:hover {
+  color: var(--accent);
+  background-color: var(--bg);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  padding: 0% 3%;
+  border: 2px solid var(--heading);
+  border-radius: var(--radius);
+}
+
+.inner-home h3:hover > i {
+  cursor: pointer;
+  -webkit-transform: rotate(-160deg);
+  -ms-transform: rotate(-160deg);
+  transform: rotate(-160deg);
+  color: var(--text);
+}
+
+/* For Tablets */
+
+@media (max-width: 900px) {
+  .home {
+    padding: 4%;
+  }
+
+  .home .outer-home {
+    width: 94%;
+    height: 90%;
+  }
+
+  .inner-home h1,
+  .inner-home h2 {
+    font-size: 7vh;
+  }
+
+  .inner-home p {
+    width: 75%;
+    font-size: 2.2vh;
+    padding: 2%;
+  }
+
+  .inner-home h3 {
+    font-size: 2.7vh;
+  }
+}
+
+/* For Mobiles */
+
+@media (max-width: 768px) {
+  .home {
+    padding: 120px 5% 5%;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+
+  .home .outer-home {
+    width: 100%;
+    height: 90%;
+    border-width: 2px;
+  }
+
+  .inner-home h1,
+  .inner-home h2 {
+    font-size: 6vh;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 2%;
+  }
+
+  .inner-home p {
+    width: 82%;
+    bottom: 10%;
+    padding: 4%;
+    font-size: 2.1vh;
+    line-height: 1.4;
+  }
+
+  .inner-home h3 {
+    bottom: 3%;
+    font-size: 2.4vh;
+    gap: 6px;
+  }
+
+  .inner-home h3:hover {
+    padding: 2% 5%;
+  }
+}
+
+/* Small device like old phones */
+@media (max-width: 480px) {
+  .home {
+    padding: 110px 4% 4%;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+
+  .home .outer-home {
+    width: 100%;
+    height: 84%;
+  }
+
+  .inner-home h1,
+  .inner-home h2 {
+    width: 90%;
+    font-size: 5.2vh;
+    letter-spacing: 1px;
+  }
+
+  .inner-home p {
+    width: 82%;
+    bottom: 11%;
+    padding: 5% 4%;
+    font-size: 1.9vh;
+    line-height: 1.45;
+  }
+
+  .inner-home h3 {
+    bottom: 3%;
+    font-size: 2.2vh;
+  }
+}
+
+/* (Chhote) small devices  */
+
+@media (max-width: 360px) {
+  .inner-home h1,
+  .inner-home h2 {
+    font-size: 4.7vh;
+  }
+
+  .inner-home p {
+    width: 84%;
+    font-size: 1.8vh;
+    bottom: 12%;
+  }
+
+  .inner-home h3 {
+    font-size: 2vh;
+  }
+}
+
+/* Animals page starts from here */
+.sect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sect h1 {
+  color: var(--text);
+  margin-bottom: 1.2%;
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+.sect h3 {
+  color: var(--text);
+  margin-bottom: 1.2%;
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+.sect p {
+  position: relative;
+  width: 60%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background-color: #0d0d0b;
+  font-family: game;
+  color: var(--accent);
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: center;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+}
+
+.sect .upper {
+  width: 70%;
+  font-size: 1rem;
+  font-family: game;
+  line-height: 1.4;
+  color: var(--accent);
+}
+
+.sect .lower {
+  width: 50%;
+  font-size: 1rem;
+  font-family: scary;
+  color: var(--text-light);
+}
+
+/* ANIMALS CARD CONTAINER */
+.sect .container {
+  width: 90%;
+  min-height: 450px;
+  margin: auto 2%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  padding: 1.2rem;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.323);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* ANIMAL CARDS */
+.sect .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 0.95)),
+    color-stop(45%, rgba(0, 0, 0, 0.45)),
+    to(rgba(0, 0, 0, 0.05))
+  );
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.05)
+  );
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.sect #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.148)),
+      to(rgba(0, 0, 0, 0.196))
+    ),
+    url("/images/Big.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.148), rgba(0, 0, 0, 0.196)),
+    url("/images/Big.jpg");
+}
+
+.sect #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Hunters.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Hunters.jpg");
+}
+
+.sect #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/intelle.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/intelle.jpg");
+}
+
+.sect #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Giants.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Giants.jpg");
+}
+
+.sect .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  font-family: game;
+  -webkit-text-decoration: underline 2px solid var(--heading);
+  text-decoration: underline 2px solid var(--heading);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+.sect .box h4 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 0.5rem;
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.sect .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* CARD ARROW effect*/
+.sect .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  z-index: 2;
+  font-size: 1.4rem;
+  font-style: normal;
+  color: var(--text);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.sect .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.sect .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.sect .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* For the Tablets like devices */
+@media (max-width: 1000px) {
+  .sect {
+    padding: 110px 3% 40px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sect h1 {
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .sect .upper {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+
+  .sect .container {
+    width: 92%;
+    -ms-grid-columns: 1fr 1rem 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: auto;
+    margin: 1rem 0;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .sect .box {
+    min-height: 340px;
+  }
+
+  .sect .lower {
+    width: 65%;
+    margin-top: 1rem;
+  }
+}
+
+/*For mobiles devices */
+@media (max-width: 600px) {
+  .sect {
+    height: auto;
+    min-height: 100vh;
+    padding: 105px 4% 40px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .sect h1 {
+    width: 100%;
+    font-size: 2.8rem;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .sect .upper {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 1.2rem;
+    padding: 4% 5%;
+  }
+
+  .sect .container {
+    width: 94%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    min-height: auto;
+    margin: 0;
+    padding: 0.8rem;
+    gap: 1rem;
+  }
+
+  .sect .box {
+    min-height: 300px;
+    padding: 1.2rem;
+  }
+
+  .sect .box h4 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .sect .box p {
+    font-size: 0.9rem;
+  }
+
+  .sect .box span {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .sect .box i {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .sect .lower {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 1.2rem;
+    padding: 4% 5%;
+  }
+
+  .sect h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
+
+/* For the small devices or old phones */
+@media (max-width: 400px) {
+  .sect {
+    padding-top: 100px;
+  }
+
+  .sect h1 {
+    font-size: 2.4rem;
+  }
+
+  .sect .upper {
+    width: 92%;
+    font-size: 0.85rem;
+  }
+
+  .sect .container {
+    width: 96%;
+    padding: 0.6rem;
+  }
+
+  .sect .box {
+    min-height: 280px;
+    padding: 1rem;
+  }
+
+  .sect .box h4 {
+    font-size: 1.7rem;
+  }
+
+  .sect .box p {
+    font-size: 0.82rem;
+  }
+
+  .sect .lower {
+    width: 92%;
+    font-size: 0.85rem;
+  }
+}
+
+/* Reptiles page starts from here */
+.sec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sec h1 {
+  color: var(--text);
+  margin-bottom: 1.2%;
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+.sec h3 {
+  color: var(--text);
+  margin-bottom: 1.2%;
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+.sec p {
+  position: relative;
+  width: 60%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background-color: #0d0d0b;
+  font-family: game;
+  color: var(--accent);
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: center;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+}
+
+.sec .top {
+  width: 70%;
+  font-size: 1rem;
+  font-family: game;
+  line-height: 1.4;
+  color: var(--accent);
+}
+
+.sec .down {
+  width: 50%;
+  font-size: 1rem;
+  font-family: scary;
+  color: var(--text-light);
+}
+
+.sec .container {
+  width: 90%;
+  min-height: 450px;
+  margin: auto 2%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  padding: 1.2rem;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.323);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Reptile card */
+.sec .boxes {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 0.95)),
+    color-stop(45%, rgba(0, 0, 0, 0.45)),
+    to(rgba(0, 0, 0, 0.05))
+  );
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.05)
+  );
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.sec #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.148)),
+      to(rgba(0, 0, 0, 0.196))
+    ),
+    url("/images/Snakes.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.148), rgba(0, 0, 0, 0.196)),
+    url("/images/Snakes.jpg");
+}
+
+.sec #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Crocodiles.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Crocodiles.jpg");
+}
+
+.sec #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Lizards.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Lizards.jpg");
+}
+
+.sec #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Turtles.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Turtles.jpg");
+}
+
+.sec .boxes span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  font-family: game;
+  -webkit-text-decoration: underline 2px solid var(--heading);
+  text-decoration: underline 2px solid var(--heading);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+/* CARD TITLE */
+.sec .boxes h4 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 0.5rem;
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+/* CARD DESCRIPTION */
+.sec .boxes p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.sec .boxes i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  z-index: 2;
+  font-size: 1.4rem;
+  font-style: normal;
+  color: var(--text);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.sec .container:hover .boxes:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.sec .boxes:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.sec .boxes:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* For Tablet like devices */
+@media (max-width: 1000px) {
+  .sec {
+    height: auto;
+    min-height: 100vh;
+    padding: 110px 3% 40px;
+  }
+
+  .sec h1 {
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .sec .top {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+
+  .sec .container {
+    width: 92%;
+    -ms-grid-columns: 1fr 1rem 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: auto;
+    margin: 1rem 0;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .sec .boxes {
+    min-height: 340px;
+  }
+
+  .sec .down {
+    width: 65%;
+    margin-top: 1rem;
+  }
+}
+
+/* For Mobile devices */
+@media (max-width: 600px) {
+  .sec {
+    height: auto;
+    min-height: 100vh;
+    padding: 105px 4% 40px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .sec h1 {
+    width: 100%;
+    font-size: 2.8rem;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .sec .top {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 1.2rem;
+    padding: 4% 5%;
+  }
+
+  .sec .container {
+    width: 94%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    min-height: auto;
+    margin: 0;
+    padding: 0.8rem;
+    gap: 1rem;
+  }
+
+  .sec .boxes {
+    min-height: 300px;
+    padding: 1.2rem;
+  }
+
+  .sec .boxes h4 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .sec .boxes p {
+    font-size: 0.9rem;
+  }
+
+  .sec .boxes span {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .sec .boxes i {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .sec h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .sec .down {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 1.2rem;
+    padding: 4% 5%;
+  }
+}
+
+/* For small or old devices */
+@media (max-width: 400px) {
+  .sec {
+    padding-top: 100px;
+  }
+
+  .sec h1 {
+    font-size: 2.4rem;
+  }
+
+  .sec .top {
+    width: 92%;
+    font-size: 0.85rem;
+  }
+
+  .sec .container {
+    width: 96%;
+    padding: 0.6rem;
+  }
+
+  .sec .boxes {
+    min-height: 280px;
+    padding: 1rem;
+  }
+
+  .sec .boxes h4 {
+    font-size: 1.7rem;
+  }
+
+  .sec .boxes p {
+    font-size: 0.82rem;
+  }
+
+  .sec .down {
+    width: 92%;
+    font-size: 0.85rem;
+  }
+}
+
+/* Birds page start from here... */
+.bird {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.bird h1 {
+  color: var(--bg);
+  margin-bottom: 1.2%;
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+.bird h3 {
+  color: var(--secondary);
+  margin-bottom: 1.2%;
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+.bird p {
+  position: relative;
+  width: 60%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background-color: var(--text);
+  font-family: game;
+  color: var(--accent);
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: center;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+}
+
+.bird .up {
+  width: 70%;
+  font-size: 1rem;
+  font-family: game;
+  line-height: 1.4;
+  color: var(--primary);
+}
+
+.bird .below {
+  width: 50%;
+  font-size: 1rem;
+  font-family: scary;
+  color: var(--text-light);
+}
+
+.bird .container {
+  width: 90%;
+  min-height: 450px;
+  margin: auto 2%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--text);
+  padding: 1.2rem;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.323);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Bird cards*/
+.bird .boxee {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid var(--heading);
+  border-radius: calc(var(--radius) * 0.8);
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 0.95)),
+    color-stop(45%, rgba(0, 0, 0, 0.45)),
+    to(rgba(0, 0, 0, 0.05))
+  );
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.05)
+  );
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+/* Birds Images for bird section */
+.bird #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0)),
+      to(rgba(0, 0, 0, 0))
+    ),
+    url("/images/Raptors.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("/images/Raptors.jpg");
+}
+
+.bird #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0))
+    ),
+    url("/images/Songbird.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0)),
+    url("/images/Songbird.jpg");
+}
+
+.bird #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0))
+    ),
+    url("/images/waterfowl.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0)),
+    url("/images/waterfowl.jpg");
+}
+
+.bird #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0))
+    ),
+    url("/images/Exotic.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0)),
+    url("/images/Exotic.jpg");
+}
+
+.bird .boxee span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  font-family: game;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--heading);
+}
+
+.bird .boxee h4 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 0.5rem;
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.bird .boxee p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.bird .boxee i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  z-index: 2;
+  font-size: 1.4rem;
+  font-style: normal;
+  color: var(--text);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+/* Card hover effects*/
+.bird .container:hover .boxee:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.bird .boxee:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.bird .boxee:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* For Tablet devices */
+@media (max-width: 1000px) {
+  .bird {
+    height: auto;
+    min-height: 100vh;
+    padding: 110px 3% 40px;
+  }
+
+  .bird h1 {
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .bird .up {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+
+  .bird .container {
+    width: 92%;
+    min-height: auto;
+    margin: 1rem 0;
+    padding: 1rem;
+    -ms-grid-columns: 1fr 1rem 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .bird .boxee {
+    min-height: 340px;
+  }
+
+  .bird .below {
+    width: 65%;
+    margin-top: 1rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .bird {
+    height: auto;
+    min-height: 100vh;
+    padding: 105px 4% 40px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .bird h1 {
+    width: 100%;
+    font-size: 2.8rem;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .bird .up {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 1.2rem;
+    padding: 4% 5%;
+  }
+
+  .bird .container {
+    width: 94%;
+    min-height: auto;
+    margin: 0;
+    padding: 0.8rem;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .bird .boxee {
+    min-height: 300px;
+    padding: 1.2rem;
+  }
+
+  .bird .boxee h4 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .bird .boxee p {
+    font-size: 0.9rem;
+  }
+
+  .bird .boxee span {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .bird .boxee i {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .bird h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .bird .below {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 1.2rem;
+    padding: 4% 5%;
+  }
+}
+
+/* For small and old devices */
+@media (max-width: 400px) {
+  .bird {
+    padding-top: 100px;
+  }
+
+  .bird h1 {
+    font-size: 2.4rem;
+  }
+
+  .bird .up {
+    width: 92%;
+    font-size: 0.85rem;
+  }
+
+  .bird .container {
+    width: 96%;
+    padding: 0.6rem;
+  }
+
+  .bird .boxee {
+    min-height: 280px;
+    padding: 1rem;
+  }
+
+  .bird .boxee h4 {
+    font-size: 1.7rem;
+  }
+
+  .bird .boxee p {
+    font-size: 0.82rem;
+  }
+
+  .bird .below {
+    width: 92%;
+    font-size: 0.85rem;
+  }
+}
+
+/* Marine page starts from here */
+.ocean {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ocean h1 {
+  color: var(--text);
+  margin-bottom: 1.2%;
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+.ocean h3 {
+  color: var(--secondary);
+  margin-bottom: 1.2%;
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+.ocean p {
+  position: relative;
+  width: 60%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background-color: var(--text);
+  font-family: game;
+  color: var(--accent);
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: center;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+}
+
+.ocean .first {
+  width: 70%;
+  font-size: 1rem;
+  font-family: game;
+  line-height: 1.4;
+  color: var(--primary);
+}
+
+.ocean .second {
+  width: 50%;
+  font-size: 1rem;
+  font-family: scary;
+  color: var(--primary);
+}
+
+.ocean .container {
+  width: 90%;
+  min-height: 450px;
+  margin: auto 2%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--text);
+  padding: 1.2rem;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.323);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ocean .baxa {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid var(--heading);
+  border-radius: calc(var(--radius) * 0.8);
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 0.95)),
+    color-stop(45%, rgba(0, 0, 0, 0.45)),
+    to(rgba(0, 0, 0, 0.05))
+  );
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.05)
+  );
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+/* iomages on the page of marine */
+.ocean #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0)),
+      to(rgba(0, 0, 0, 0))
+    ),
+    url("/images/OCgiants.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("/images/OCgiants.jpg");
+}
+
+.ocean #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0))
+    ),
+    url("/images/Chain.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0)),
+    url("/images/Chain.jpg");
+}
+
+.ocean #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0))
+    ),
+    url("/images/sea.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0)),
+    url("/images/sea.jpg");
+}
+
+.ocean #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0))
+    ),
+    url("/images/sqd.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0)),
+    url("/images/sqd.jpg");
+}
+
+.ocean .baxa span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  font-family: game;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--heading);
+}
+
+.ocean .baxa h4 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 0.5rem;
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.ocean .baxa p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ocean .baxa i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  z-index: 2;
+  font-size: 1.4rem;
+  font-style: normal;
+  color: var(--text);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+/* Card effects */
+.ocean .container:hover .baxa:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.ocean .baxa:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.ocean .baxa:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* For Tablets */
+@media (max-width: 1000px) {
+  .ocean {
+    height: auto;
+    min-height: 100vh;
+    padding: 110px 3% 40px;
+  }
+
+  .ocean h1 {
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .ocean .first {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+
+  .ocean .container {
+    width: 92%;
+    min-height: auto;
+    margin: 1rem 0;
+    padding: 1rem;
+    -ms-grid-columns: 1fr 1rem 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .ocean .baxa {
+    min-height: 340px;
+  }
+
+  .ocean .second {
+    width: 65%;
+    margin-top: 1rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .ocean {
+    height: auto;
+    min-height: 100vh;
+    padding: 105px 4% 40px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .ocean h1 {
+    width: 100%;
+    font-size: 2.8rem;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .ocean .first {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 1.2rem;
+    padding: 4% 5%;
+  }
+
+  .ocean .container {
+    width: 94%;
+    min-height: auto;
+    margin: 0;
+    padding: 0.8rem;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .ocean .baxa {
+    min-height: 300px;
+    padding: 1.2rem;
+  }
+
+  .ocean .baxa h4 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .ocean .baxa p {
+    font-size: 0.9rem;
+  }
+
+  .ocean .baxa span {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .ocean .baxa i {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .ocean h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .ocean .second {
+    width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 1.2rem;
+    padding: 4% 5%;
+  }
+}
+
+/* For small and old devices */
+@media (max-width: 400px) {
+  .ocean {
+    padding-top: 100px;
+  }
+
+  .ocean h1 {
+    font-size: 2.4rem;
+  }
+
+  .ocean .first {
+    width: 92%;
+    font-size: 0.85rem;
+  }
+
+  .ocean .container {
+    width: 96%;
+    padding: 0.6rem;
+  }
+
+  .ocean .baxa {
+    min-height: 280px;
+    padding: 1rem;
+  }
+
+  .ocean .baxa h4 {
+    font-size: 1.7rem;
+  }
+
+  .ocean .baxa p {
+    font-size: 0.82rem;
+  }
+
+  .ocean .second {
+    width: 92%;
+    font-size: 0.85rem;
+  }
+}
+
+/* Bigcats page starts from here */
+.cat {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+
+.cat h1 {
+  margin-bottom: 1.2%;
+  color: var(--text);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+
+.cat .upp {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: #0d0d0b;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+
+.cat .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.cat .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.cat #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Lion.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Lion.jpg");
+}
+
+.cat #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Tiger.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Tiger.jpg");
+}
+
+.cat #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Leopard.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Leopard.jpg");
+}
+
+.cat #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Jaguar.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Jaguar.jpg");
+}
+
+.cat #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Cheetah.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Cheetah.jpg");
+}
+
+.cat #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Snowleopard.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Snowleopard.jpg");
+}
+
+.cat #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Cougar.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Cougar.jpg");
+}
+
+.cat #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Lynx.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Lynx.jpg");
+}
+
+.cat .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.cat .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.cat .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--accent);
+  font-family: game;
+  text-align: center;
+}
+
+.cat .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.cat .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.cat .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--accent);
+}
+
+.cat .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .cat .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cat .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .cat .box {
+    min-height: 360px;
+  }
+}
+
+/* Canines page starts from here */
+.cann {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.cann h1 {
+  margin-bottom: 1.2%;
+  color: var(--text);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.cann .cannie {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: #0d0d0b;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+
+.cann .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.cann .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.cann #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GWolf.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GWolf.jpg");
+}
+
+.cann #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/RFox.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/RFox.jpg");
+}
+
+.cann #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/AWDog.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/AWDog.jpg");
+}
+
+.cann #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Coyote.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Coyote.jpg");
+}
+
+.cann #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Dingo.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Dingo.jpg");
+}
+
+.cann #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Golden.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Golden.jpg");
+}
+
+.cann #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Artic.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Artic.jpg");
+}
+
+.cann #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Maned.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Maned.jpg");
+}
+
+.cann .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.cann .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.cann .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--accent);
+  font-family: game;
+  text-align: center;
+}
+
+.cann .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.cann .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.cann .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--accent);
+}
+
+.cann .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .cann .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cann .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .cann .box {
+    min-height: 360px;
+  }
+}
+
+/* Primates page starts from here */
+.primat {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.primat h1 {
+  margin-bottom: 1.2%;
+  color: var(--text);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.primat .prime {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: #0d0d0b;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.primat .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.primat .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.primat #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/gorilla.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/gorilla.jpg");
+}
+
+.primat #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/cimpanzee.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/cimpanzee.jpg");
+}
+
+.primat #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/ORANGUTAN.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/ORANGUTAN.jpg");
+}
+
+.primat #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/baboon.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/baboon.jpg");
+}
+
+.primat #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/mandrill.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/mandrill.jpg");
+}
+
+.primat #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/gibbon.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/gibbon.jpg");
+}
+
+.primat #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/ring.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/ring.jpg");
+}
+
+.primat #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/proboscis.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/proboscis.jpg");
+}
+
+.primat .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.primat .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.primat .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--accent);
+  font-family: game;
+  text-align: center;
+}
+
+.primat .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.primat .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.primat .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--accent);
+}
+
+.primat .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .primat .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .primat .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .primat .box {
+    min-height: 360px;
+  }
+}
+
+/* Giants page starts from here */
+.giant {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.giant h1 {
+  margin-bottom: 1.2%;
+  color: var(--text);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.giant .gnt {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: #0d0d0b;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.giant .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.giant .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.giant #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/elephant.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/elephant.jpg");
+}
+
+.giant #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/giraffe.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/giraffe.jpg");
+}
+
+.giant #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/rhino.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/rhino.jpg");
+}
+
+.giant #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/hippo.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/hippo.jpg");
+}
+
+.giant #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/polar.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/polar.jpg");
+}
+
+.giant #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/bison.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/bison.jpg");
+}
+
+.giant #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/walrus.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/walrus.jpg");
+}
+
+.giant #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/moose.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/moose.jpg");
+}
+
+.giant .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.giant .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.giant .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--accent);
+  font-family: game;
+  text-align: center;
+}
+
+.giant .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.giant .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.giant .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--accent);
+}
+
+.giant .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .giant .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .giant .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .giant .box {
+    min-height: 360px;
+  }
+}
+
+/* Snakes page starts from here */
+.snake {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.snake h1 {
+  margin-bottom: 1.2%;
+  color: var(--text);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.snake .snk {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: #0d0d0b;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.snake .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.snake .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.snake #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/king.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/king.jpg");
+}
+
+.snake #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/anaconda.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/anaconda.jpg");
+}
+
+.snake #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/blackmamba.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/blackmamba.jpg");
+}
+
+.snake #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/raticulate.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/raticulate.jpg");
+}
+
+.snake #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/rattle.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/rattle.jpg");
+}
+
+.snake #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/boa.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/boa.jpg");
+}
+
+.snake #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/gaboonv.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/gaboonv.jpg");
+}
+
+.snake #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/greenpy.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/greenpy.jpg");
+}
+
+.snake .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.snake .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.snake .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--accent);
+  font-family: game;
+  text-align: center;
+}
+
+.snake .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.snake .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.snake .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--accent);
+}
+
+.snake .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .snake .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .snake .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .snake .box {
+    min-height: 360px;
+  }
+}
+
+/* Crocodile page starts from here */
+.crocodile {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.crocodile h1 {
+  margin-bottom: 1.2%;
+  color: var(--text);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.crocodile .cdl {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: #0d0d0b;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.crocodile .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.crocodile .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.crocodile #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SALTWATER.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SALTWATER.jpg");
+}
+
+.crocodile #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/NILE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/NILE.jpg");
+}
+
+.crocodile #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/AMERICAN.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/AMERICAN.jpg");
+}
+
+.crocodile #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/MUGGER.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/MUGGER.jpg");
+}
+
+.crocodile #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SIAMESE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SIAMESE.jpg");
+}
+
+.crocodile #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/CUBAN.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/CUBAN.jpg");
+}
+
+.crocodile #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/DWARF.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/DWARF.jpg");
+}
+
+.crocodile #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/ORINOCO.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/ORINOCO.jpg");
+}
+
+.crocodile .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.crocodile .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.crocodile .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--accent);
+  font-family: game;
+  text-align: center;
+}
+
+.crocodile .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.crocodile .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.crocodile .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--accent);
+}
+
+.crocodile .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .crocodile .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .crocodile .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .crocodile .box {
+    min-height: 360px;
+  }
+}
+
+/* Lizard page starts from here */
+.lizard {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.lizard h1 {
+  margin-bottom: 1.2%;
+  color: var(--text);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.lizard .lzd {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: #0d0d0b;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.lizard .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.lizard .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.lizard #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/KOMODO.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/KOMODO.jpg");
+}
+
+.lizard #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/IGUANA.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/IGUANA.jpg");
+}
+
+.lizard #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/CHAMELEON.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/CHAMELEON.jpg");
+}
+
+.lizard #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BEARDED.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BEARDED.jpg");
+}
+
+.lizard #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GECKO.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GECKO.jpg");
+}
+
+.lizard #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GILA.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GILA.jpg");
+}
+
+.lizard #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/FRILLED.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/FRILLED.jpg");
+}
+
+.lizard #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/THORNED.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/THORNED.jpg");
+}
+
+.lizard .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.lizard .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.lizard .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--accent);
+  font-family: game;
+  text-align: center;
+}
+
+.lizard .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.lizard .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.lizard .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--accent);
+}
+
+.lizard .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .lizard .container {
+    -ms-grid-columns: (1fr) [2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .lizard .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .lizard .box {
+    min-height: 360px;
+  }
+}
+
+/* Turtles page starts from here */
+.turtle {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.turtle h1 {
+  margin-bottom: 1.2%;
+  color: var(--text);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.turtle .ttl {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: #0d0d0b;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.turtle .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.turtle .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.turtle #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GREEN SEA.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GREEN SEA.jpg");
+}
+
+.turtle #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/LEATHERBACK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/LEATHERBACK.jpg");
+}
+
+.turtle #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/Loggerhead.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/Loggerhead.jpg");
+}
+
+.turtle #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/HAWKSBILL.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/HAWKSBILL.jpg");
+}
+
+.turtle #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/ALDABRAGIANT.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/ALDABRAGIANT.jpg");
+}
+
+.turtle #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GALAPAGOS.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GALAPAGOS.jpg");
+}
+
+.turtle #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SNAPPING.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SNAPPING.jpg");
+}
+
+.turtle #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/PAINTED.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/PAINTED.jpg");
+}
+
+.turtle .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.turtle .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.turtle .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--accent);
+  font-family: game;
+  text-align: center;
+}
+
+.turtle .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.turtle .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.turtle .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--accent);
+}
+
+.turtle .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .turtle .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .turtle .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .turtle .box {
+    min-height: 360px;
+  }
+}
+
+/* Raptors page starts from here */
+.raptor {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.raptor h1 {
+  margin-bottom: 1.2%;
+  color: var(--text-light);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.raptor .rpt {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--text);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.raptor .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.raptor .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--text-light);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.raptor #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BALD.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BALD.jpg");
+}
+
+.raptor #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GOLDENEAGLE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GOLDENEAGLE.jpg");
+}
+
+.raptor #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/FALCON.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/FALCON.jpg");
+}
+
+.raptor #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/HARPY.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/HARPY.jpg");
+}
+
+.raptor #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/RED-TAILED.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/RED-TAILED.jpg");
+}
+
+.raptor #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/OSPREY.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/OSPREY.jpg");
+}
+
+.raptor #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GREAT HORNED OWL.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GREAT HORNED OWL.jpg");
+}
+
+.raptor #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SECRETARY.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SECRETARY.jpg");
+}
+
+.raptor .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.raptor .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.raptor .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--text-light);
+  font-family: game;
+  text-align: center;
+}
+
+.raptor .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.raptor .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.raptor .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--text-light);
+}
+
+.raptor .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .raptor .container {
+    -ms-grid-columns: (1fr) [2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .raptor .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .raptor .box {
+    min-height: 360px;
+  }
+}
+
+/* Songbirds page starts from here */
+.songbird {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.songbird h1 {
+  margin-bottom: 1.2%;
+  color: var(--text-light);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.songbird .sgb {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--text);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.songbird .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.songbird .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--text-light);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.songbird #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/NIGHTINGALE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/NIGHTINGALE.jpg");
+}
+
+.songbird #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/CANARY.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/CANARY.jpg");
+}
+
+.songbird #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/ROBIN.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/ROBIN.jpg");
+}
+
+.songbird #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/NORTH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/NORTH.jpg");
+}
+
+.songbird #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BLUE JAY.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BLUE JAY.jpg");
+}
+
+.songbird #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/ORIOLE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/ORIOLE.jpg");
+}
+
+.songbird #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/COMMON.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/COMMON.jpg");
+}
+
+.songbird #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/MOCKINGBIRD.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/MOCKINGBIRD.jpg");
+}
+
+.songbird .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.songbird .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.songbird .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--text-light);
+  font-family: game;
+  text-align: center;
+}
+
+.songbird .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.songbird .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.songbird .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--text-light);
+}
+
+.songbird .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .songbird .container {
+    -ms-grid-columns: (1fr) [2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .songbird .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .songbird .box {
+    min-height: 360px;
+  }
+}
+
+/* Waterfowls page starts from here */
+.waterfowl {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.waterfowl h1 {
+  margin-bottom: 1.2%;
+  color: var(--text-light);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.waterfowl .wtf {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--text);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.waterfowl .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.waterfowl .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--text-light);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.waterfowl #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/MALLARD.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/MALLARD.jpg");
+}
+
+.waterfowl #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SWANWHITE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SWANWHITE.jpg");
+}
+
+.waterfowl #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GOOSE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GOOSE.jpg");
+}
+
+.waterfowl #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/FLAMINGO.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/FLAMINGO.jpg");
+}
+
+.waterfowl #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/PELICAN.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/PELICAN.jpg");
+}
+
+.waterfowl #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/DUCK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/DUCK.jpg");
+}
+
+.waterfowl #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/LOON.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/LOON.jpg");
+}
+
+.waterfowl #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GREBE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GREBE.jpg");
+}
+
+.waterfowl .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.waterfowl .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.waterfowl .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--text-light);
+  font-family: game;
+  text-align: center;
+}
+
+.waterfowl .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.waterfowl .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.waterfowl .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--text-light);
+}
+
+.waterfowl .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .waterfowl .container {
+    -ms-grid-columns: (1fr) [2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .waterfowl .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .waterfowl .box {
+    min-height: 360px;
+  }
+}
+
+/* Exoticbirds page starts from here */
+.exoticbird {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.exoticbird h1 {
+  margin-bottom: 1.2%;
+  color: var(--text-light);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.exoticbird .exb {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--text);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.exoticbird .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.exoticbird .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--text-light);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.exoticbird #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/TOUCAN.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/TOUCAN.jpg");
+}
+
+.exoticbird #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/PEACOCK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/PEACOCK.jpg");
+}
+
+.exoticbird #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BIRD-OF-PARADISE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BIRD-OF-PARADISE.jpg");
+}
+
+.exoticbird #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SCARLET MACAW.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SCARLET MACAW.jpg");
+}
+
+.exoticbird #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/KINGFISHER.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/KINGFISHER.jpg");
+}
+
+.exoticbird #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GOULDIAN FINCH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GOULDIAN FINCH.jpg");
+}
+
+.exoticbird #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/HOATZIN.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/HOATZIN.jpg");
+}
+
+.exoticbird #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/QUETZAL.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/QUETZAL.jpg");
+}
+
+.exoticbird .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.exoticbird .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.exoticbird .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--text-light);
+  font-family: game;
+  text-align: center;
+}
+
+.exoticbird .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.exoticbird .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.exoticbird .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--text-light);
+}
+
+.exoticbird .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .exoticbird .container {
+    -ms-grid-columns: (1fr) [2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .exoticbird .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .exoticbird .box {
+    min-height: 360px;
+  }
+}
+
+/* Oceangiants page starts from here */
+.oceangiant {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.oceangiant h1 {
+  margin-bottom: 1.2%;
+  color: var(--text-light);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.oceangiant .ocg {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--text);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.oceangiant .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.oceangiant .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--text-light);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.oceangiant #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BLUE WHALE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BLUE WHALE.jpg");
+}
+
+.oceangiant #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SPERM WHALE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SPERM WHALE.jpg");
+}
+
+.oceangiant #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/ORCA.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/ORCA.jpg");
+}
+
+.oceangiant #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/WHALE SHARK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/WHALE SHARK.jpg");
+}
+
+.oceangiant #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GIANT MANTA RAY.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GIANT MANTA RAY.jpg");
+}
+
+.oceangiant #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GREAT WHITE SHARK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GREAT WHITE SHARK.jpg");
+}
+
+.oceangiant #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GIANT PACIFIC OCTOPUS.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GIANT PACIFIC OCTOPUS.jpg");
+}
+
+.oceangiant #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/HUMPBACK WHALE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/HUMPBACK WHALE.jpg");
+}
+
+.oceangiant .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.oceangiant .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.oceangiant .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--text-light);
+  font-family: game;
+  text-align: center;
+}
+
+.oceangiant .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.oceangiant .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.oceangiant .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--text-light);
+}
+
+.oceangiant .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .oceangiant .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .oceangiant .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .oceangiant .box {
+    min-height: 360px;
+  }
+}
+
+/* Apex page starts from here */
+.ape {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.ape h1 {
+  margin-bottom: 1.2%;
+  color: var(--text-light);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.ape .aps {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--text);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.ape .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.ape .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--text-light);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.ape #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/TIGER SHARK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/TIGER SHARK.jpg");
+}
+
+.ape #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SHORTFIN MAKO SHARK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SHORTFIN MAKO SHARK.jpg");
+}
+
+.ape #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GREAT HAMMERHEAD.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GREAT HAMMERHEAD.jpg");
+}
+
+.ape #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BULL SHARK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BULL SHARK.jpg");
+}
+
+.ape #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/LEOPARD SEAL.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/LEOPARD SEAL.jpg");
+}
+
+.ape #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GIANT TREVALLY.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GIANT TREVALLY.jpg");
+}
+
+.ape #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BLUEFIN TUNA.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BLUEFIN TUNA.jpg");
+}
+
+.ape #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/MORAY EEL.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/MORAY EEL.jpg");
+}
+
+.ape .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.ape .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.ape .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--text-light);
+  font-family: game;
+  text-align: center;
+}
+
+.ape .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.ape .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.ape .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--text-light);
+}
+
+.ape .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .ape .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .ape .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .ape .box {
+    min-height: 360px;
+  }
+}
+
+/* Reeflifes page starts from here */
+.reeflife {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.reeflife h1 {
+  margin-bottom: 1.2%;
+  color: var(--text-light);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.reeflife .refl {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--text);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.reeflife .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.reeflife .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--text-light);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.reeflife #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/CLOWNFISH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/CLOWNFISH.jpg");
+}
+
+.reeflife #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/PARROTFISH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/PARROTFISH.jpg");
+}
+
+.reeflife #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BUTTERFLYFISH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BUTTERFLYFISH.jpg");
+}
+
+.reeflife #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/LIONFISH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/LIONFISH.jpg");
+}
+
+.reeflife #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/MANTIS SHRIMP.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/MANTIS SHRIMP.jpg");
+}
+
+.reeflife #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BLUE TANG.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BLUE TANG.jpg");
+}
+
+.reeflife #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/SEA HORSE.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/SEA HORSE.jpg");
+}
+
+.reeflife #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/STARFISH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/STARFISH.jpg");
+}
+
+.reeflife .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.reeflife .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.reeflife .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--text-light);
+  font-family: game;
+  text-align: center;
+}
+
+.reeflife .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.reeflife .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.reeflife .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--text-light);
+}
+
+.reeflife .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .reeflife .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .reeflife .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .reeflife .box {
+    min-height: 360px;
+  }
+}
+
+/* Deepsea page starts from here */
+.deeps {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+.deeps h1 {
+  margin-bottom: 1.2%;
+  color: var(--text-light);
+  font-family: jungle;
+  letter-spacing: 3px;
+}
+
+/* Intro Paragraph */
+.deeps .dps {
+  width: 70%;
+  margin-bottom: 1.2%;
+  padding: 1% 1.2%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--text);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Card Container */
+.deeps .container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.2rem 1fr 1.2rem 1fr 1.2rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.323);
+  backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.deeps .box {
+  position: relative;
+  min-height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1.5px solid var(--text-light);
+  border-radius: calc(var(--radius) * 0.8);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease;
+}
+
+.deeps #box1 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GIANT SQUID.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GIANT SQUID.jpg");
+}
+
+.deeps #box2 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/ANGLERFISH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/ANGLERFISH.jpg");
+}
+
+.deeps #box3 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GOBLIN SHARK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GOBLIN SHARK.jpg");
+}
+
+.deeps #box4 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/VAMPIRE SQUID.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/VAMPIRE SQUID.jpg");
+}
+
+.deeps #box5 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/GIANT ISOPOD.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/GIANT ISOPOD.jpg");
+}
+
+.deeps #box6 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/DUMBO OCTOPUS.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/DUMBO OCTOPUS.jpg");
+}
+
+.deeps #box7 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/FRILLED SHARK.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/FRILLED SHARK.jpg");
+}
+
+.deeps #box8 {
+  background-image:
+    -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(rgba(0, 0, 0, 0.95)),
+      to(rgba(0, 0, 0, 0.15))
+    ),
+    url("/images/BARRELEYE FISH.jpg");
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15)),
+    url("/images/BARRELEYE FISH.jpg");
+}
+
+.deeps .box span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  -webkit-text-decoration: underline 2px solid var(--accent);
+  text-decoration: underline 2px solid var(--accent);
+}
+
+.deeps .box h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  letter-spacing: 2px;
+}
+
+.deeps .box p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: var(--text-light);
+  font-family: game;
+  text-align: center;
+}
+
+.deeps .box i {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-style: normal;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease;
+}
+
+.deeps .container:hover .box:not(:hover) {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 0.96;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+
+.deeps .box:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+  border-color: var(--text-light);
+}
+
+.deeps .box:hover i {
+  -webkit-transform: translate(4px, -8px) rotate(45deg);
+  -ms-transform: translate(4px, -8px) rotate(45deg);
+  transform: translate(4px, -8px) rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .deeps .container {
+    -ms-grid-columns: (1fr) 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .deeps .container {
+    width: 88%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .deeps .box {
+    min-height: 360px;
+  }
+}
+
+/*CREATURE DETAIL PAGE*/
+.creature-page {
+  min-height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: var(--bg);
+}
+
+.creature-page > h1 {
+  margin: 0 0 2rem;
+  color: var(--text);
+  font-family: jungle;
+  font-size: 3.5rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+/*MAIN CREATURE BOX*/
+.creature-box {
+  width: 70%;
+  min-height: 650px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 45% 55%;
+  grid-template-columns: 45% 55%;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--secondary);
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  -webkit-transition:
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-box-shadow 0.5s ease;
+  transition:
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-box-shadow 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease,
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-box-shadow 0.5s ease;
+}
+
+/*IMAGE SECTION*/
+.creature-image {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 1.5rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.creature-image img {
+  width: 100%;
+  height: 580px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  border: 1.5px solid var(--accent);
+  border-radius: calc(var(--radius) * 0.8);
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  -webkit-transition:
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease,
+    -webkit-box-shadow 0.5s ease;
+  transition:
+    border-color 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease,
+    -webkit-box-shadow 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    -webkit-transform 0.5s ease,
+    -webkit-filter 0.5s ease,
+    -webkit-box-shadow 0.5s ease;
+}
+
+/* Image Hover */
+.creature-image:hover img {
+  -webkit-transform: scale(1.025);
+  -ms-transform: scale(1.025);
+  transform: scale(1.025);
+  border-color: var(--heading);
+  -webkit-box-shadow: 10px 15px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 15px 15px rgba(0, 0, 0, 0.4);
+}
+
+/*INFORMATION SECTION*/
+.creature-info {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 3rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: var(--text-light);
+  font-family: game;
+}
+
+/*CREATURE TITLE*/
+.creature-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  gap: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.creature-title h1 {
+  margin: 0;
+  color: var(--text-light);
+  font-family: jungle;
+  font-size: 3.5rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.scientific-name {
+  margin: 0;
+  color: var(--heading);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/*INFORMATION ROW*/
+.info-item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 1fr;
+  grid-template-columns: 200px 1fr;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  margin-bottom: 0.85rem;
+}
+
+.info-item span {
+  color: var(--accent);
+  font-family: game;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  -webkit-text-decoration: underline solid var(--text);
+  text-decoration: underline solid var(--text);
+}
+
+.info-item p {
+  margin: 0px;
+  color: var(--text);
+  font-family: game;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/*MAIN BOX HOVER */
+.creature-box:hover {
+  border-color: var(--accent);
+  -webkit-box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* for the devive like TABLETS */
+@media (max-width: 1100px) {
+  .creature-page {
+    padding: 4rem 2rem;
+  }
+
+  .creature-box {
+    width: 82%;
+    -ms-grid-columns: 45% 55%;
+    grid-template-columns: 45% 55%;
+  }
+
+  .creature-image {
+    padding: 1.2rem;
+  }
+
+  .creature-image img {
+    height: 520px;
+  }
+
+  .creature-info {
+    padding: 2rem;
+  }
+
+  .creature-title {
+    gap: 0.7rem;
+  }
+
+  .creature-title h1 {
+    font-size: 2.8rem;
+  }
+
+  .info-item {
+    -ms-grid-columns: 145px 1fr;
+    grid-template-columns: 145px 1fr;
+  }
+}
+
+/* for the small devive like MBILE and SMALL TABLETS */
+@media (max-width: 800px) {
+  .creature-page {
+    padding: 3rem 1.2rem;
+  }
+
+  .creature-box {
+    width: 92%;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .creature-image {
+    height: auto;
+    padding: 0;
+  }
+
+  .creature-image img {
+    width: 100%;
+    height: 420px;
+  }
+
+  .creature-info {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .creature-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .creature-title h1 {
+    font-size: 2.5rem;
+  }
+
+  .info-item {
+    -ms-grid-columns: 140px 1fr;
+    grid-template-columns: 140px 1fr;
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* for the small devive like PHONE */
+@media (max-width: 600px) {
+  .creature-page {
+    padding: 2rem 0.8rem;
+  }
+
+  .creature-box {
+    width: 96%;
+    border-radius: calc(var(--radius) * 0.8);
+  }
+
+  .creature-image img {
+    height: 330px;
+  }
+
+  .creature-info {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .creature-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 0.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .creature-title h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .scientific-name {
+    font-size: 0.9rem;
+  }
+
+  .info-item {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-item span {
+    font-size: 0.8rem;
+  }
+
+  .info-item p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Footer page starts from here... */
+.footer {
+  width: 100%;
+  padding: 5rem 6% 2rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: var(--heading);
+  border-top: 2px solid var(--border);
+  color: var(--text);
+  font-family: game;
+}
+
+.footer-top {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5fr 4rem 1fr 4rem 1.5fr 4rem 1fr;
+  grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+  gap: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 2.5px solid var(--bg);
+}
+
+.footer-brand h1 {
+  margin: 0 0 0.8rem;
+  font-family: jungle;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 200;
+  letter-spacing: 3px;
+  color: var(--bg);
+}
+
+.footer-brand p {
+  margin: 0;
+  font-family: game;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.footer-links h3,
+.footer-about h3,
+.footer-social h3 {
+  margin: 0 0 1.2rem;
+  font-family: jungle;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--secondary);
+}
+
+.footer-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-links a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: game;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  text-decoration: none;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+  -webkit-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  transform: translateX(5px);
+}
+
+.footer-about p {
+  max-width: 280px;
+  margin: 0;
+  font-family: scary;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+}
+
+.footer-social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-social a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: game;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  text-decoration: none;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer-social a:hover {
+  color: var(--accent);
+  -webkit-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  transform: translateX(5px);
+}
+
+/* For footer bottom */
+.footer-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1.8rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-family: game;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.footer-bottom .back-top {
+  font-family: game;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  text-decoration: none;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer-bottom .back-top:hover {
+  color: var(--secondary);
+  font-size: 1rem;
+}
+
+/* For tablets... */
+@media (max-width: 1000px) {
+  .footer {
+    padding: 4rem 5% 1.5rem;
+  }
+
+  .footer-top {
+    -ms-grid-columns: 1fr 3rem 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .footer-brand h1 {
+    font-size: 3.8rem;
+  }
+}
+
+/* Mobiles... */
+@media (max-width: 600px) {
+  .footer {
+    padding: 3.5rem 7% 1.5rem;
+  }
+
+  .footer-top {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .footer-brand h1 {
+    font-size: 3rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.85rem;
+  }
+
+  .footer-links h3,
+  .footer-about h3,
+  .footer-social h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-about p {
+    max-width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .footer-bottom p,
+  .footer-bottom .back-top {
+    font-size: 0.75rem;
+  }
+}
+
+/* For small and old devices */
+@media (max-width: 400px) {
+  .footer {
+    padding: 3rem 6% 1.2rem;
+  }
+
+  .footer-top {
+    gap: 2rem;
+  }
+
+  .footer-brand h1 {
+    font-size: 2.5rem;
+  }
+}
