@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <Nav />
 
-      <section className="home relative h-screen w-full overflow-hidden before:absolute before:inset-0 before:bg-[url('./public/images/bgc.jpg')] before:bg-cover before:bg-center before:bg-no-repeat before:scale-105">
+      <section className="home relative h-screen w-full overflow-hidden before:absolute before:inset-0 before:bg-[url('/Fauna/images/bgc.jpg')] before:bg-cover before:bg-center before:bg-no-repeat before:scale-105">
         <div className="outer-home relative z-10 h-[90%] w-[94%] rounded-4xl bg-[#010101b1]">
           <div className="inner-home relative h-full w-full">
             <h1 className="h-one">one planet</h1>
