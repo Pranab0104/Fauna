@@ -33,7 +33,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Fauna">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/animals" element={<Animals />} />
