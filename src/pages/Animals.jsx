@@ -6,7 +6,7 @@ const Animals = () => {
   return (
     <section
       id="animals"
-      className="sect relative h-screen w-full overflow-hidden before:absolute before:inset-0 before:bg-[url('./public/images/Animal_bg.jpg')] before:bg-cover before:bg-center before:bg-no-repeat before:scale-105"
+      className="sect relative h-screen w-full overflow-hidden before:absolute before:inset-0 before:bg-[url('/Fauna/images/Animal_bg.jpg')] before:bg-cover before:bg-center before:bg-no-repeat before:scale-105"
     >
       <h1 className="relative z-10 text-6xl">Animals</h1>
 
