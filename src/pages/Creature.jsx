@@ -11,7 +11,10 @@ const Creature = () => {
       <div className="creature-box">
         {/* Left Side - Image */}
         <div className="creature-image">
-          <img src={creature.image} alt={creature.name} />
+          <img
+            src={`${import.meta.env.BASE_URL}${creature.image.replace(/^\//, "")}`}
+            alt={creature.name}
+          />
         </div>
 
         {/* Right Side - Information */}
